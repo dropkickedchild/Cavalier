@@ -1,0 +1,15 @@
+{
+	"name": "mern-application",
+	"version": "0.1.0",
+	"description": "",
+	"private": true,
+	"main": "",
+	"license": "ISC",
+	"scripts": {
+		"install": "concurrently \"cd ./server && npm i\" \"cd ./client && npm i\"",
+		"delete-modules": "rm -r ./node_modules && cd ./server && rm -r ./node_modules && cd ../client && rm -r ./node_modules"
+	},
+	"devDependencies": {
+		"concurrently": "^6.3.0"
+	}
+}
