@@ -20,6 +20,8 @@ class MongoDB {
 			);
 			const connection = db.connection;
 
+			mongoose.set("strictQuery", false);
+
 			this.isConnected = connection.readyState === 1;
 			if (this.isConnected) console.log("✅ MongoDB connected");
 
