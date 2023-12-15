@@ -1,3 +1,4 @@
+// Dependencies
 import { Fragment, useState } from "react";
 import {
 	AppBar,
@@ -12,6 +13,7 @@ import OnlineIndicator from "./OnlineIndicator";
 import AuthModal from "./AuthModal";
 import { useAuth } from "../contexts/AuthContext";
 
+// Header
 export default function Header() {
 	const { isLoggedIn, account, logout } = useAuth();
 
@@ -44,12 +46,12 @@ export default function Header() {
 
 	return (
 		<AppBar className="header" position="static">
-			<h1>Cavalier</h1>
+			<h1>orphan's authentication</h1>
 
 			<IconButton onClick={openPopover}>
 				<OnlineIndicator online={isLoggedIn}>
 					<Avatar
-						src={account?.username || ""}
+						src={account?.profilePicture || ""}
 						alt={account?.username || ""}
 					/>
 				</OnlineIndicator>
@@ -64,7 +66,7 @@ export default function Header() {
 			>
 				<List style={{ minWidth: "100px" }}>
 					<ListSubheader style={{ textAlign: "center" }}>
-						Hello, {isLoggedIn ? account.username : "Guest"}
+						hi, {isLoggedIn ? account.username : "Guest"}
 					</ListSubheader>
 
 					{isLoggedIn ? (

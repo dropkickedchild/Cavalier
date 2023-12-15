@@ -1,6 +1,7 @@
+// Dependencies
 import { useState, useEffect } from "react";
 
-/* How to use this hook:
+/* Example:
 import useMediaQuery from './hooks/useMediaQuery';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   return ();
 }; */
 
+// Return a bool if the app is currently using a specfic media query.
 export default function useMediaQuery(query = "(max-width: 768px)") {
 	const [matches, setMatches] = useState(window.matchMedia(query).matches);
 

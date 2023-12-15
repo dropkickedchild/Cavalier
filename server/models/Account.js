@@ -1,5 +1,7 @@
+// Dependencies
 const mongoose = require("mongoose");
 
+// Account schema
 const instance = new mongoose.Schema(
 	{
 		username: {
@@ -18,11 +20,17 @@ const instance = new mongoose.Schema(
 			enum: ["user", "admin"],
 			default: "user",
 		},
+		profilePicture: {
+			type: String,
+			required: false,
+			default: "https://placehold.co/600x400/EEE/31343C",
+		},
 	},
 	{
 		timestamps: true,
 	}
 );
 
+// Create and export it as a mongoose model
 const modelName = "Account";
 module.exports = mongoose.model(modelName, instance);

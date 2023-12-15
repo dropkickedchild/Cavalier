@@ -1,6 +1,8 @@
+// Dependencies
 import { styled } from "@mui/material/styles";
 import { Badge, Avatar } from "@mui/material";
 
+// Badge
 const StyledBadge = styled(Badge)(({ theme }) => ({
 	"& .MuiBadge-badge": {
 		backgroundColor: "black",
@@ -30,6 +32,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 	},
 }));
 
+// Online badge
 const OnlineBadge = styled(StyledBadge)(({ theme }) => ({
 	"& .MuiBadge-badge": {
 		backgroundColor: "var(--online)",
@@ -37,6 +40,7 @@ const OnlineBadge = styled(StyledBadge)(({ theme }) => ({
 	},
 }));
 
+// Offline badge
 const OfflineBadge = styled(StyledBadge)(({ theme }) => ({
 	"& .MuiBadge-badge": {
 		backgroundColor: "var(--offline)",
@@ -44,6 +48,7 @@ const OfflineBadge = styled(StyledBadge)(({ theme }) => ({
 	},
 }));
 
+// Online indicator
 export default function OnlineIndicator({
 	online = false,
 	children = <Avatar src="" alt="" />,

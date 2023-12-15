@@ -1,20 +1,22 @@
+// Dependencies
 const express = require("express");
 const cors = require("cors");
 const { ORIGIN } = require("../constants");
 
-// initialize app
+// Initalize the Express app
 const app = express();
 
-// middlewares
+// Middlewares
 app.use(cors({ origin: ORIGIN }));
-app.use(express.json({ extended: true })); // body parser
-app.use(express.urlencoded({ extended: false })); // url parser
+app.use(express.json({ extended: true })); // Body Parser
+app.use(express.urlencoded({ extended: false })); // Url Parser
 
-// error handling
-app.use((err, req, res, next) => {
-	console.error(err);
+// Handle errors
+app.use((error, req, res, next) => {
+	console.error(error);
 	res.status(500).send();
 	next();
 });
 
+// Export
 module.exports = app;

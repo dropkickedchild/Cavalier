@@ -1,7 +1,8 @@
+// Dependencies
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 
-// axios configuration
+// Configuration
 export default axios.create({
 	baseURL: BACKEND_URL,
 });

@@ -1,15 +1,16 @@
+// Dependencies
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "../utils/axios";
 
-// init context
+// Initalize context
 const AuthContext = createContext();
 
-// export the consumer
+// Export the consumer
 export function useAuth() {
 	return useContext(AuthContext);
 }
 
-// export the provider (handle all the logic here)
+// Export the provider
 export function AuthProvider({ children }) {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [account, setAccount] = useState(null);

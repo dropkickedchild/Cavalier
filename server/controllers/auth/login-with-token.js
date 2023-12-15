@@ -1,11 +1,13 @@
+// Dependencies
 const Account = require("../../models/Account");
 const { signToken } = require("../../middlewares/jsonwebtoken");
 
+// Log the user in using the cookie/token
 async function loginWithToken(request, response, next) {
 	try {
 		const { uid } = request.auth;
 
-		// Get account from DB, existance not verified because we are already authorized at this point
+		// Get account from MongoDB
 		const foundAccount = await Account.findOne({ _id: uid }).select(
 			"-password"
 		);
@@ -16,6 +18,7 @@ async function loginWithToken(request, response, next) {
 			role: foundAccount.role,
 		});
 
+		// Success
 		response.status(200).json({
 			message: "Account fetched",
 			data: foundAccount,
@@ -27,4 +30,5 @@ async function loginWithToken(request, response, next) {
 	}
 }
 
+// Export
 module.exports = loginWithToken;

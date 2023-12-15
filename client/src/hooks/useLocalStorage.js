@@ -1,6 +1,7 @@
+// Dependencies
 import { useState, useEffect } from "react";
 
-/* How to use this hook:
+/* Example:
 import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   return ();
 }; */
 
+// Create a new item in the local storage.
 export default function useLocalStorage(key = "", defaultValue = null) {
 	const [value, setValue] = useState(
 		JSON.parse(localStorage.getItem(key)) || defaultValue

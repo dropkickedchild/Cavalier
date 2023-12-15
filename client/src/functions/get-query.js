@@ -1,3 +1,4 @@
+// Parses a query string into an object of key-value pairs.
 export default function getQuery(queryStr = "") {
 	if (queryStr) {
 		const queryObj = {};

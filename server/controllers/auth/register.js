@@ -1,11 +1,14 @@
+// Dependencies
 const joi = require("joi");
 const bcrypt = require("bcrypt");
 const Account = require("../../models/Account");
 const { signToken } = require("../../middlewares/jsonwebtoken");
 
+// Create a new account for the user using the Account.js schema
 async function register(request, response, next) {
 	try {
 		// Validate request data
+
 		await joi
 			.object({
 				username: joi.string().required(),
@@ -13,6 +16,8 @@ async function register(request, response, next) {
 			})
 			.validateAsync(request.body);
 	} catch (error) {
+		// Could not validate
+
 		return response.status(400).json({
 			error: "ValidationError",
 			message: error.message,
@@ -27,7 +32,7 @@ async function register(request, response, next) {
 		if (existingAccount) {
 			return response.status(400).json({
 				error: username,
-				message: 'An account already exists with that "username"',
+				message: "That username is taken!",
 			});
 		}
 
@@ -46,8 +51,9 @@ async function register(request, response, next) {
 		// Generate access token
 		const token = signToken({ uid: newAccount._id, role: newAccount.role });
 
+		// Success
 		response.status(201).json({
-			message: "Succesfully registered",
+			message: "Succesfully registered!",
 			data: newAccount,
 			token,
 		});
@@ -57,4 +63,5 @@ async function register(request, response, next) {
 	}
 }
 
+// Export
 module.exports = register;

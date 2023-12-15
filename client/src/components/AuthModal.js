@@ -1,3 +1,4 @@
+// Dependencies
 import { Fragment, useState } from "react";
 import {
 	Dialog,
@@ -10,6 +11,7 @@ import { useAuth } from "../contexts/AuthContext";
 
 const textFieldSx = { mx: 2, my: 0.5 };
 
+// Auth modal
 export default function AuthModal({
 	open,
 	close,
@@ -81,6 +83,7 @@ export default function AuthModal({
 	);
 }
 
+// Login form
 function LoginForm({ formData, handleChange }) {
 	return (
 		<Fragment>
@@ -110,6 +113,7 @@ function LoginForm({ formData, handleChange }) {
 	);
 }
 
+// Register form
 function RegisterForm({ formData, handleChange }) {
 	return (
 		<Fragment>

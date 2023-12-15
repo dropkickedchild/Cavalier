@@ -1,11 +1,14 @@
+// Dependencies
 const joi = require("joi");
 const bcrypt = require("bcrypt");
 const Account = require("../../models/Account");
 const { signToken } = require("../../middlewares/jsonwebtoken");
 
+// Log the user in
 async function login(request, response, next) {
 	try {
 		// Validate request data
+
 		await joi
 			.object({
 				username: joi.string().required(),
@@ -13,6 +16,8 @@ async function login(request, response, next) {
 			})
 			.validateAsync(request.body);
 	} catch (error) {
+		// Could not validate
+
 		return response.status(400).json({
 			error: "ValidationError",
 			message: error.message,
@@ -22,19 +27,21 @@ async function login(request, response, next) {
 	try {
 		const { username, password } = request.body;
 
-		// Get account from DB, and verify existance
+		// Get account from MongoDB, and verify existance
 		const foundAccount = await Account.findOne({ username });
+
 		if (!foundAccount) {
 			return response.status(400).json({
-				message: "Bad credentials",
+				message: "Account does not exist.",
 			});
 		}
 
 		// Decrypt and verify password
 		const passOk = await bcrypt.compare(password, foundAccount.password);
+
 		if (!passOk) {
 			return response.status(400).json({
-				message: "Bad credentials",
+				message: "Incorrect username or password!",
 			});
 		}
 
@@ -48,8 +55,9 @@ async function login(request, response, next) {
 			role: foundAccount.role,
 		});
 
+		// Success
 		response.status(200).json({
-			message: "Succesfully logged-in",
+			message: "Succesfully logged in!",
 			data: foundAccount,
 			token,
 		});
@@ -59,4 +67,5 @@ async function login(request, response, next) {
 	}
 }
 
+// Export
 module.exports = login;

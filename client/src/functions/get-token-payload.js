@@ -1,3 +1,4 @@
+// Extracts and decodes the payload from a JSON Web Token (JWT).
 export default function getTokenPayload(token = "") {
 	if (token) {
 		const informativePart = token.split(".")[1];
