@@ -11,8 +11,11 @@ async function main() {
 	// Connect to MongoDB
 	await mongo.connect();
 
-	// Test route
-	app.get("/", (req, res) => res.status(200).json({ message: "Success!" }));
+	// Debug route
+	app.get("/", (req, res) => {
+		console.log("Debug route was pinged."); // Debug message
+		res.status(200).json({ message: "OK" });
+	});
 
 	// Health check
 	app.get("/health", (req, res) => res.status(200).send());
