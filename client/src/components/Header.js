@@ -46,7 +46,7 @@ export default function Header() {
 
 	return (
 		<AppBar className="header" position="static">
-			<h1>orphan's authentication</h1>
+			<h1>name</h1>
 
 			<IconButton onClick={openPopover}>
 				<OnlineIndicator online={isLoggedIn}>
