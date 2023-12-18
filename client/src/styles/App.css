@@ -1,0 +1,17 @@
+:root {
+	--online: #44b700;
+	--offline: #b74400;
+}
+
+body {
+	font-family: "Roboto";
+	font-size: 16px;
+}
+
+.App {
+	width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

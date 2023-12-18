@@ -55,7 +55,7 @@ export default function AuthModal({
 				<LoginForm formData={formData} handleChange={handleChange} />
 			)}
 
-			{error && <span className="error">{error}</span>}
+			{error && <span className="authModalError">{error}</span>}
 
 			{loading ? (
 				<center>
