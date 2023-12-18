@@ -24,19 +24,6 @@ async function main() {
 	// Use external routes
 	app.use("/auth", authRoutes);
 
-	// If the port is 10000 (render sets during deployment)
-	// ping the server every 5 minutes to prevent it from sleeping
-	// Hack so we don't have to pay $7 a month for 100% uptime.
-	if (PORT === 10000) {
-		setInterval(async () => {
-			try {
-				await axios.get("https://cavalier-1hi6.onrender.com/");
-			} catch (error) {
-				console.log(error);
-			}
-		}, 5 * 60 * 1000); // 5 minutes in milliseconds
-	}
-
 	// Run Express app
 	app.listen(PORT, () => {
 		console.log(`✅ Server is listening on port: ${PORT}`);
