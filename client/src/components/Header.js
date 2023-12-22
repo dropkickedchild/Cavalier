@@ -47,7 +47,7 @@ export default function Header() {
 
 	return (
 		<AppBar className={styles.header} position="static">
-			<h1>name</h1>
+			<h1>Cavalier</h1>
 
 			<IconButton onClick={openPopover}>
 				<OnlineIndicator online={isLoggedIn}>
