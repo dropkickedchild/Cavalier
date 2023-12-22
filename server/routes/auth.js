@@ -8,13 +8,13 @@ const loginWithToken = require("../controllers/auth/login-with-token");
 // Initialize router
 const router = express.Router();
 
-// POST at route: http://localhost:8080/auth/register
+// POST at route: http://localhost:8080/api/v1/auth/register
 router.post("/register", [], register);
 
-// POST at path: http://localhost:8080/auth/login
+// POST at path: http://localhost:8080/api/v1/auth/login
 router.post("/login", [], login);
 
-// GET at path: http://localhost:8080/auth/account
+// GET at path: http://localhost:8080/api/v1/auth/account
 router.get("/login", [authorizeBearerToken], loginWithToken);
 
 // Export router

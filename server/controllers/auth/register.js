@@ -13,6 +13,7 @@ async function register(request, response, next) {
 			.object({
 				username: joi.string().required(),
 				password: joi.string().required(),
+				profilePicture: joi.string().required(),
 			})
 			.validateAsync(request.body);
 	} catch (error) {
@@ -25,7 +26,7 @@ async function register(request, response, next) {
 	}
 
 	try {
-		const { username, password } = request.body;
+		const { username, password, profilePicture } = request.body;
 
 		// Verify account username as unique
 		const existingAccount = await Account.findOne({ username });
@@ -41,7 +42,11 @@ async function register(request, response, next) {
 		const hash = await bcrypt.hash(password, salt);
 
 		// Create account
-		const newAccount = new Account({ username, password: hash });
+		const newAccount = new Account({
+			username,
+			password: hash,
+			profilePicture,
+		});
 		await newAccount.save();
 
 		// Remove password from response data

@@ -22,8 +22,8 @@ const instance = new mongoose.Schema(
 		},
 		profilePicture: {
 			type: String,
-			required: false,
-			default: "https://placehold.co/600x400/EEE/31343C",
+			required: true,
+			default: "https://placehold.co/600x400/EEE/31343C", // TODO: Make a custom default profile picture
 		},
 	},
 	{

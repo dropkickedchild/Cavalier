@@ -8,6 +8,7 @@ import {
 	CircularProgress,
 } from "@mui/material";
 import { useAuth } from "../contexts/AuthContext";
+import styles from "../styles/AuthModal.module.css";
 
 const textFieldSx = { mx: 2, my: 0.5 };
 
@@ -55,7 +56,7 @@ export default function AuthModal({
 				<LoginForm formData={formData} handleChange={handleChange} />
 			)}
 
-			{error && <span className="authModalError">{error}</span>}
+			{error && <span className={styles.error}>{error}</span>}
 
 			{loading ? (
 				<center>
@@ -134,6 +135,16 @@ function RegisterForm({ formData, handleChange }) {
 				name="password"
 				type="password"
 				value={formData["password"] || ""}
+				onChange={handleChange}
+				variant="filled"
+				sx={textFieldSx}
+				required
+			/>
+			<TextField
+				label="Profile Picture"
+				name="profilePicture"
+				type="text"
+				value={formData["profilePicture"] || ""}
 				onChange={handleChange}
 				variant="filled"
 				sx={textFieldSx}

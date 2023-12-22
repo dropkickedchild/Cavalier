@@ -12,6 +12,7 @@ import {
 import OnlineIndicator from "./OnlineIndicator";
 import AuthModal from "./AuthModal";
 import { useAuth } from "../contexts/AuthContext";
+import styles from "../styles/Header.module.css";
 
 // Header
 export default function Header() {
@@ -45,7 +46,7 @@ export default function Header() {
 	};
 
 	return (
-		<AppBar className="header" position="static">
+		<AppBar className={styles.header} position="static">
 			<h1>name</h1>
 
 			<IconButton onClick={openPopover}>
@@ -66,7 +67,7 @@ export default function Header() {
 			>
 				<List style={{ minWidth: "100px" }}>
 					<ListSubheader style={{ textAlign: "center" }}>
-						hi, {isLoggedIn ? account.username : "Guest"}
+						Welcome, {isLoggedIn ? account.username : "Guest"}
 					</ListSubheader>
 
 					{isLoggedIn ? (
@@ -74,10 +75,10 @@ export default function Header() {
 					) : (
 						<Fragment>
 							<ListItemButton onClick={clickLogin}>
-								login
+								Login
 							</ListItemButton>
 							<ListItemButton onClick={clickRegister}>
-								register
+								Register
 							</ListItemButton>
 						</Fragment>
 					)}

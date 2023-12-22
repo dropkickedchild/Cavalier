@@ -1,8 +1,8 @@
-.layoutNavLinkContainer {
+.linkContainer {
 	list-style-type: none;
 }
 
-.layoutNavLink {
+.navLink {
 	text-decoration: none;
 	color: black;
 }

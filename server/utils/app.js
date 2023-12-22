@@ -7,7 +7,7 @@ const { ORIGIN } = require("../constants");
 const app = express();
 
 // Middlewares
-app.use(cors({ origin: ORIGIN }));
+app.use(cors({ origin: ORIGIN })); // Cors
 app.use(express.json({ extended: true })); // Body Parser
 app.use(express.urlencoded({ extended: false })); // Url Parser
 

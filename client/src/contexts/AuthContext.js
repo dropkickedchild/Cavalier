@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
 	const register = (formData = {}) =>
 		new Promise((resolve, reject) => {
 			axios
-				.post("/auth/register", formData)
+				.post("auth/register", formData)
 				.then(({ data: { data: accountData, token: accessToken } }) => {
 					setAccount(accountData);
 					setToken(accessToken);
@@ -35,7 +35,7 @@ export function AuthProvider({ children }) {
 	const login = (formData = {}) =>
 		new Promise((resolve, reject) => {
 			axios
-				.post("/auth/login", formData)
+				.post("auth/login", formData)
 				.then(({ data: { data: accountData, token: accessToken } }) => {
 					setAccount(accountData);
 					setToken(accessToken);
@@ -58,7 +58,7 @@ export function AuthProvider({ children }) {
 		try {
 			const {
 				data: { data: accountData, token: accessToken },
-			} = await axios.get("/auth/login", {
+			} = await axios.get("auth/login", {
 				headers: {
 					authorization: `Bearer ${token}`,
 				},

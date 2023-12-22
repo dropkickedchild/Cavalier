@@ -16,6 +16,9 @@ class MongoDB {
 		if (this.isConnected) return;
 
 		try {
+			// Fix a warning
+			this.mongoose.set("strictQuery", false);
+
 			// Connect to MongoDB
 			const db = await this.mongoose.connect(
 				this.MONGO_URI,
@@ -26,21 +29,21 @@ class MongoDB {
 
 			// Successfully connected
 			this.isConnected = connection.readyState === 1;
-			if (this.isConnected) console.log("✅ MongoDB connected");
+			if (this.isConnected) console.log("🔥 MongoDB connected.");
 
 			// Re-connected
 			connection.on("connected", () =>
-				console.log("✅ MongoDB connected")
+				console.log("🔥 MongoDB connected.")
 			);
 
 			// Disconnected
 			connection.on("disconnected", () =>
-				console.log("❌ MongoDB disconnected")
+				console.log("❌ MongoDB disconnected.")
 			);
 
 			// Listen for errors during the session
 			connection.on("error", (error) =>
-				console.log("❌ MongoDB connection error", error)
+				console.log("❌ MongoDB connection error: ", error)
 			);
 		} catch (error) {
 			console.log("❌ MongoDB connection error:", error.message);

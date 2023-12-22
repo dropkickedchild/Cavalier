@@ -8,16 +8,15 @@ const { signToken } = require("../../middlewares/jsonwebtoken");
 async function login(request, response, next) {
 	try {
 		// Validate request data
-
 		await joi
 			.object({
 				username: joi.string().required(),
 				password: joi.string().required(),
+				profilePicture: joi.string().required(),
 			})
 			.validateAsync(request.body);
 	} catch (error) {
 		// Could not validate
-
 		return response.status(400).json({
 			error: "ValidationError",
 			message: error.message,
