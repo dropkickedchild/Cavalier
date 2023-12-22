@@ -23,7 +23,8 @@ const instance = new mongoose.Schema(
 		profilePicture: {
 			type: String,
 			required: true,
-			default: "https://placehold.co/600x400/EEE/31343C", // TODO: Make a custom default profile picture
+			default:
+				"https://cavalier-1hi6.onrender.com/cdn/images/test-react-logo-32x32.png",
 		},
 	},
 	{
