@@ -9,7 +9,6 @@ import {
 	ListSubheader,
 	ListItemButton,
 } from "@mui/material";
-import OnlineIndicator from "./OnlineIndicator";
 import AuthModal from "./AuthModal";
 import { useAuth } from "../contexts/AuthContext";
 import styles from "../styles/Header.module.css";
@@ -47,15 +46,18 @@ export default function Header() {
 
 	return (
 		<AppBar className={styles.header} position="static">
-			<h1>Cavalier</h1>
+			<img
+				className={styles.logo}
+				src="https://cavalier-1hi6.onrender.com/cdn/images/test-react-logo-32x32.png"
+				alt="Logo"
+			/>
+			<h1 className={styles.name}>Cavalier</h1>
 
 			<IconButton onClick={openPopover}>
-				<OnlineIndicator online={isLoggedIn}>
-					<Avatar
-						src={account?.profilePicture || ""}
-						alt={account?.username || ""}
-					/>
-				</OnlineIndicator>
+				<Avatar
+					src={account?.profilePicture || ""}
+					alt={account?.username || ""}
+				/>
 			</IconButton>
 
 			<Popover

@@ -9,3 +9,12 @@
 	align-items: center !important;
 	justify-content: space-between !important;
 }
+
+.logo {
+	width: 64px;
+	height: 64px;
+}
+
+.name {
+	margin-right: 75%;
+}
