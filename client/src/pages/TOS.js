@@ -1,4 +1,4 @@
-// What is displayed when the URL is invalid
+// TOS page elements
 const TOS = () => {
 	return (
 		<>

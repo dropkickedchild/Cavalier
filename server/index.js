@@ -6,6 +6,7 @@ const app = require("./utils/app");
 const mongo = require("./utils/mongo");
 const { PORT } = require("./constants");
 const authRoutes = require("./routes/auth");
+const profileRoutes = require("./routes/profile");
 
 // Run on startup
 // Connect to MongoDB and initalizes all the routes
@@ -18,6 +19,7 @@ async function main() {
 
 	// External routes
 	app.use("/api/v1/auth", authRoutes); // Authentication
+	app.use("/api/v1/profile", profileRoutes); // Profiles
 
 	// CDN
 	app.use("/cdn", express.static("cdn"));

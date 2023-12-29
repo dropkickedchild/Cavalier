@@ -1,4 +1,4 @@
-// What is displayed when the URL is invalid
+// Privacy page elements
 const Privacy = () => {
 	return (
 		<>
