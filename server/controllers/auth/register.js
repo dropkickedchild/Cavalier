@@ -13,7 +13,7 @@ async function register(request, response, next) {
 			.object({
 				username: joi.string().required(),
 				password: joi.string().required(),
-				profilePicture: joi.string().required(),
+				profilePicture: joi.string(),
 			})
 			.validateAsync(request.body);
 	} catch (error) {

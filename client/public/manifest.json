@@ -1,7 +1,7 @@
 {
-	"name": "orphan's authentication",
-	"short_name": "orphanAuth",
-	"description": "A hobby project developed by orphan.",
+	"name": "Cavalier",
+	"short_name": "Cavalier",
+	"description": "A hobby project developed by dropkickedchild.",
 	"icons": [
 		{
 			"src": "favicon.ico",
@@ -24,7 +24,7 @@
 	"theme_color": "#000000",
 	"background_color": "#ffffff",
 	"developer": {
-		"name": "orphan",
+		"name": "dropkickedchild",
 		"url": ""
 	}
 }

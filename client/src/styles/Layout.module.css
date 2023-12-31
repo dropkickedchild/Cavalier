@@ -1,8 +1,5 @@
-.linkContainer {
+* {
+	color: white !important;
 	list-style-type: none;
-}
-
-.navLink {
 	text-decoration: none;
-	color: black;
 }

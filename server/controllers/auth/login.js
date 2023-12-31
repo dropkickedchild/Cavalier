@@ -12,7 +12,6 @@ async function login(request, response, next) {
 			.object({
 				username: joi.string().required(),
 				password: joi.string().required(),
-				profilePicture: joi.string().required(),
 			})
 			.validateAsync(request.body);
 	} catch (error) {

@@ -47,11 +47,13 @@ export default function Header() {
 	return (
 		<AppBar className={styles.header} position="static">
 			<img
-				className={styles.logo}
+				style={{ width: "48px", height: "48px" }}
 				src="https://cavalier-1hi6.onrender.com/cdn/images/test-react-logo-32x32.png"
 				alt="Logo"
 			/>
-			<h1 className={styles.name}>Cavalier</h1>
+			<h1 style={{ marginRight: "auto", paddingLeft: "16px" }}>
+				Cavalier
+			</h1>
 
 			<IconButton onClick={openPopover}>
 				<Avatar
@@ -67,8 +69,13 @@ export default function Header() {
 				anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
 				transformOrigin={{ vertical: "top", horizontal: "right" }}
 			>
-				<List style={{ minWidth: "100px" }}>
-					<ListSubheader style={{ textAlign: "center" }}>
+				<List style={{ minWidth: "100px", backgroundColor: "black" }}>
+					<ListSubheader
+						style={{
+							textAlign: "center",
+							backgroundColor: "black",
+						}}
+					>
 						Welcome, {isLoggedIn ? account.username : "Guest"}
 					</ListSubheader>
 

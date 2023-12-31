@@ -49,22 +49,13 @@ const UserProfile = () => {
         updatedAt
     */
 
+	// Formatted date: {new Date(userData.updatedAt).toLocaleDateString("en-US")}
+
 	return (
-		<div>
-			<h1>User Profile</h1>
-			<p>user id: {userData._id}</p>
-			<p>username: {userData.username}</p>
-			<p>role: {userData.role}</p>
-			<p>profile picture: {userData.profilePicture}</p>
-			<p>
-				created at time:{" "}
-				{new Date(userData.createdAt).toLocaleDateString("en-US")}
-			</p>
-			<p>
-				updated at time:{" "}
-				{new Date(userData.updatedAt).toLocaleDateString("en-US")}
-			</p>
-		</div>
+		<>
+			<img src={userData.profilePicture} alt="Failed to load." />
+			<h1>{userData.username}</h1>
+		</>
 	);
 };
 

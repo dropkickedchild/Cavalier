@@ -1,17 +1,35 @@
 :root {
-	--online: #44b700;
-	--offline: #b74400;
+	--main-bg-color: rgb(20, 20, 20);
 }
 
 body {
 	font-family: "Roboto";
 	font-size: 16px;
+
+	background-color: var(--main-bg-color) !important;
 }
 
 .App {
 	width: 100vw;
 	min-height: 100vh;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.MuiDialogTitle-root {
+	background-color: rgb(30, 30, 30);
+}
+
+.MuiTextField-root {
+	background-color: black;
+}
+
+.MuiButton-root {
+	color: white !important;
+}
+
+.MuiDialog-paper {
+	background-color: rgb(30, 30, 30) !important;
 }

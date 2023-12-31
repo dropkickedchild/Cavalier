@@ -22,7 +22,7 @@ const instance = new mongoose.Schema(
 		},
 		profilePicture: {
 			type: String,
-			required: true,
+			required: false,
 			default:
 				"https://cavalier-1hi6.onrender.com/cdn/images/test-react-logo-32x32.png",
 		},

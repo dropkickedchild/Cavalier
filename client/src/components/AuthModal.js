@@ -148,6 +148,7 @@ function RegisterForm({ formData, handleChange }) {
 				onChange={handleChange}
 				variant="filled"
 				sx={textFieldSx}
+				helperText="Currently the profile picture uses an image url."
 				required
 			/>
 		</Fragment>
