@@ -1,7 +1,6 @@
 // Dependencies
 require("dotenv").config();
 const express = require("express");
-const path = require("path");
 const app = require("./utils/app");
 const mongo = require("./utils/mongo");
 const { PORT } = require("./constants");
@@ -26,10 +25,7 @@ async function main() {
 
 	// Unknown endpoint/asset
 	app.get("*", (req, res) => {
-		//res.status(404).json({ message: "Unknown endpoint/asset", code: 404 });
-
-		res.setHeader("Content-Type", "text/html");
-		res.sendFile(path.join(__dirname, "./public/404.html"));
+		res.status(404).json({ message: "Unknown endpoint/asset", code: 404 });
 	});
 
 	// Run Express app
