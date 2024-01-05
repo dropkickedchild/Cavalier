@@ -1,13 +1,8 @@
 // Dependencies
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Pages
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import UserProfile from "./pages/UserProfile";
-import Error from "./pages/Error";
-import Privacy from "./pages/Privacy";
-import TOS from "./pages/TOS";
+// Import our pages from pages/index.js
+import { Layout, Home, UserProfile, Error, Privacy, TOS } from "./pages/index";
 
 // Setup Browser Router
 export default function App() {
