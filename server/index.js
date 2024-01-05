@@ -14,7 +14,8 @@ async function main() {
 	await mongo.connect();
 
 	// Health check
-	app.get("/api/v1/status", (req, res) => res.status(200).send());
+	// Changed to be supported for Render's health checking system.
+	app.get("/health", (req, res) => res.status(200).send());
 
 	// External routes
 	app.use("/api/v1/auth", authRoutes); // Authentication
